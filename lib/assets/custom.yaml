@@ -1,0 +1,11 @@
+files:
+    "/opt/elasticbeanstalk/hooks/appdeploy/pre/60custompreappdeploy.sh" :
+        mode: "000775"
+        owner: root
+        group: users
+        content: |
+            #!/bin/bash
+
+            <% for(var key in instructions) { %>
+            <%- instructions[key] %>
+            <% } %>
