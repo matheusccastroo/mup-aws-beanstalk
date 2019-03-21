@@ -9,6 +9,7 @@ export function createDesiredConfig(mupConfig, settings, longEnvVarsVersion) {
   const {
     env,
     instanceType,
+    deploymentPolicy,
     customBeanstalkConfig = []
   } = mupConfig.app;
   const {
@@ -64,7 +65,7 @@ export function createDesiredConfig(mupConfig, settings, longEnvVarsVersion) {
     }, {
       Namespace: 'aws:elasticbeanstalk:command',
       OptionName: 'DeploymentPolicy',
-      Value: 'RollingWithAdditionalBatch'
+      Value: deploymentPolicy
     }, {
       Namespace: 'aws:elasticbeanstalk:command',
       OptionName: 'BatchSizeType',
