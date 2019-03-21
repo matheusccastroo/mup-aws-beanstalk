@@ -32,6 +32,7 @@ export function prepareConfig(config) {
   config.app.maxInstances = config.app.maxInstances || config.app.minInstances;
 
   config.app.instanceType = config.app.instanceType || 't2.micro';
+  config.app.deploymentPolicy = config.app.deploymentPolicy || 'RollingWithAdditionalBatch';
 
   config.app.env = config.app.env || {};
   config.app.env.PORT = 8081;
