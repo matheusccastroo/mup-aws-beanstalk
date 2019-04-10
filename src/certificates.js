@@ -29,6 +29,8 @@ export default async function ensureSSLConfigured(config, certificateArn) {
 
   const domains = config.app.sslDomains;
 
+  await waitForEnvReady(config, true);
+
   if (!domains || domains.length === 0) {
     await beanstalk.updateEnvironment({
       EnvironmentName: environment,

@@ -294,6 +294,9 @@ export async function deploy(api) {
     } = checkLongEnvSafe(ConfigurationSettings, api.commandHistory, config.app);
 
     if (!migrated) {
+      logStep('=> Migrating to longEnvVars');
+      await waitForEnvReady(config, true);
+
       // We know the bundle now supports longEnvVars, so it is safe to migrate
       await api.runCommand('beanstalk.reconfig');
     }
