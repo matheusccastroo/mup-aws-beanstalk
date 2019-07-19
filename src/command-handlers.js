@@ -153,6 +153,7 @@ export async function setup(api) {
     const trailBucketName = existingBucket ?
       existingBucket.Name :
       createUniqueName(regionTrailBucketPrefix);
+
     const accountId = await getAccountId();
     const policy = trailBucketPolicy(accountId, trailBucketName);
 
