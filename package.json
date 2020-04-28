@@ -1,5 +1,5 @@
 {
-  "name": "mup-aws-beanstalk",
+  "name": "@hubroeducation/mup-aws-beanstalk",
   "version": "0.7.1",
   "description": "Deploy apps to AWS Elastic Beanstalk using Meteor Up",
   "main": "index.js",
@@ -51,5 +51,18 @@
     "shell-escape": "^0.2.0",
     "tar": "^4.0.2",
     "uuid": "^3.1.0"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgeer/mup-aws-beanstalk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jorgeer/mup-aws-beanstalk/issues"
+  },
+  "homepage": "https://github.com/jorgeer/mup-aws-beanstalk#readme"
 }
