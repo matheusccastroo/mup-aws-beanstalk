@@ -19,7 +19,8 @@ export function injectFiles(api, name, version, appConfig) {
     gracefulShutdown,
     buildOptions,
     longEnvVars,
-    additionalFiles
+    additionalFiles,
+    path
   } = appConfig;
   const bundlePath = buildOptions.buildLocation;
   const {
@@ -87,6 +88,17 @@ export function injectFiles(api, name, version, appConfig) {
   sourcePath = api.resolvePath(__dirname, './assets/health-check.js');
   destPath = api.resolvePath(bundlePath, 'bundle/health-check.js');
   copy(sourcePath, destPath);
+
+  const customConfigPath = api.resolvePath(api.getBasePath(), `${path}/.ebextensions`);
+  const customConfig = fs.existsSync(customConfigPath);
+
+  if (customConfig) {
+    fs.readdirSync(customConfigPath).forEach((file) => {
+      sourcePath = api.resolvePath(customConfigPath, file);
+      destPath = api.resolvePath(bundlePath, `bundle/.ebextensions/${file}`);
+      copy(sourcePath, destPath);
+    });
+  }
 }
 
 export function archiveApp(buildLocation, api) {
