@@ -33,12 +33,6 @@ files:
             access_log /var/log/nginx/healthd/application.log.$year-$month-$day-$hour healthd;
             access_log /var/log/nginx/access.log main;
 
-            <% if(forceSSL) { %>
-            if ($http_x_forwarded_proto = "http") {
-              return 301 https://$host$request_uri;
-            }
-            <% } %>
-
             location /aws-health-check-3984729847289743128904723 {
               proxy_pass http://healthcheck;
               proxy_set_header Connection "";
@@ -51,6 +45,11 @@ files:
             }
 
             <% if(incomingRequests) { %>
+            <% if(forceSSL) { %>
+            if ($http_x_forwarded_proto = "http") {
+              return 301 https://$host$request_uri;
+            }
+            <% } %>
             location ~* /packages/.+\.(eot|ttf|woff)$ {
               root /var/app/current/programs/web.browser;
               access_log off;
