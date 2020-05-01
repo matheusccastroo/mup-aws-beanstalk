@@ -7,6 +7,7 @@ As we have not received any reply for our forks and issues in the main repositor
 - Support for custom ebextensions config files (by @s7dhansh, https://github.com/zodern/mup-aws-beanstalk/pull/72)
 - Support for different deployment policies
 - Fixes for hangups on SSL
+- Disable HTTP requests
 
 ### Extra feautres
 
@@ -32,6 +33,16 @@ additionalFiles: [
 // add to mup config
 
 "deploymentPolicy": "Rolling"
+```
+
+
+#### Disable incoming HTTP requests
+
+
+```
+// add to mup config
+
+"disableIncomingRequests": true
 ```
 
 

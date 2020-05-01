@@ -1,3 +1,12 @@
+## 0.7.2 - May 1, 2020
+
+- Updated dependencies
+- Add ability to include extra files into instances
+- Support for custom ebextensions config files (by @s7dhansh, https://github.com/zodern/mup-aws-beanstalk/pull/72)
+- Support for different deployment policies
+- Fixes for hangups on SSL
+- Disable HTTP requests
+
 ## 0.6.3 - April 18, 2020
 
 - Fix memory leak in health-check.js (@jimrandomh)
