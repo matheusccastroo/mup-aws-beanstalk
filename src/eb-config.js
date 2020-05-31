@@ -1,9 +1,5 @@
-import {
-  difference
-} from 'lodash';
-import {
-  names
-} from './utils';
+import { difference } from 'lodash';
+import { names } from './utils';
 
 export function createDesiredConfig(mupConfig, settings, longEnvVarsVersion) {
   const {
@@ -77,7 +73,7 @@ export function createDesiredConfig(mupConfig, settings, longEnvVarsVersion) {
     }, {
       Namespace: 'aws:autoscaling:updatepolicy:rollingupdate',
       OptionName: 'RollingUpdateEnabled',
-      Value: 'true'
+      Value: ['Rolling', 'RollingWithAdditionalBatch', 'Immutable'].includes(deploymentPolicy) ? 'true' : 'false'
     }, {
       Namespace: 'aws:autoscaling:updatepolicy:rollingupdate',
       OptionName: 'RollingUpdateType',
