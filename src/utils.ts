@@ -148,9 +148,12 @@ export function getNodeVersion(api: MupApi, bundlePath: string) {
   const nodeVersionTxt = fs.readFileSync(api.resolvePath(bundlePath, 'bundle/.node_version.txt')).toString();
 
   const star = JSON.parse(starString);
+  
+  const meteorVersion = star?.meteorRelease?.split('@')[1] || "2.12";
 
   if (star.npmVersion) {
     return {
+      meteorVersion,
       nodeVersion: star.nodeVersion,
       npmVersion: star.npmVersion
     };
