@@ -52,4 +52,4 @@ echo "APP_PATH: $APP_PATH"
 
 cd "$APP_PATH"
 ls
-cd programs/server && npm install --unsafe-perm
+cd programs/server && meteor npm install --unsafe-perm
