@@ -115,14 +115,14 @@ async function startInstanceListeners (logGroupName: string, instanceNames: stri
 
 export async function startLogStreamListener (
   api: MupApi,
-  eventLog: EventDescription[]
+  eventLog: EventDescription[],
+  logFileName: string
 ) {
   const config = api.getConfig();
   console.log("Start log stream listener");
 
   const { environment } = names(config);
 
-  const logFileName = 'var/log/web.stdout.log';
   const logGroupName = `/aws/elasticbeanstalk/${environment}/${logFileName}`;
 
   await startInstanceListeners(logGroupName, getInstancesFromLogs(eventLog));
