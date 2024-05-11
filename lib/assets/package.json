@@ -2,6 +2,6 @@
   "name": "<%= name %>",
   "version": "<%= version %>.0.0",
   "scripts": {
-    "start": "bash ./node.sh && bash ./start.sh"
+    "start": "bash ./start.sh"
   }
 }

@@ -72,6 +72,10 @@ export function injectFiles(api: MupApi, name: string, version: number, appConfi
   destPath = api.resolvePath(bundlePath, 'bundle/.npmrc');
   copy(sourcePath, destPath);
 
+  sourcePath = api.resolvePath(__dirname, './assets/node.sh');
+  destPath = api.resolvePath(bundlePath, 'bundle/node.sh');
+  copy(sourcePath, destPath);
+
   sourcePath = api.resolvePath(__dirname, './assets/start.sh');
   destPath = api.resolvePath(bundlePath, 'bundle/start.sh');
   copy(sourcePath, destPath);

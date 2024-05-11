@@ -3,6 +3,9 @@
 echo "Running start.sh script"
 [[ ! -z "$MUP_ENV_FILE_VERSION" ]] && { echo "Long Env is enabled."; source /etc/app/env.txt; }
 
+echo "Checking node installation"
+source ./node.sh
+
 echo "Node version"
 echo $(node --version)
 echo "Node path"
