@@ -7,9 +7,6 @@ echo "env_version=$env_version"
 
 [[ -z "$env_version" ]] && { echo "Long Env is not enabled."; exit 0; }
 
-export NVM_DIR="/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
 instance_profile=`curl http://169.254.169.254/$VERSION/meta-data/iam/security-credentials/`
 json=`curl http://169.254.169.254/$VERSION/meta-data/iam/security-credentials/${instance_profile}`
 instance_region=`curl http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/.$//'`

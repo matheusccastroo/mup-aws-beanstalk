@@ -30,6 +30,8 @@ if [[ $MAJOR_NODE_VERSION == "14" && $MINOR_NODE_VERSION -ge 21 ]]; then
     echo "export INSTALLED_NODE_VERSION=$(node --version)" >> $ENV_PATH
     # Set Node path for start.sh
     export NODE_PATH=$NEW_PATH
+    echo "NODE_PATH IS: $NODE_PATH"
+    echo "FROM MUP-AWS-BEANSTALK"
   fi
 else
   export NVM_DIR="/.nvm"

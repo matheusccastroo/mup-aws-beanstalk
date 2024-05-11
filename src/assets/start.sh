@@ -1,11 +1,9 @@
 #!/bin/bash
 
-export NVM_DIR="/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# nvm use default --delete-prefix --silent
-
 [[ ! -z "$MUP_ENV_FILE_VERSION" ]] && { echo "Long Env is enabled."; source /etc/app/env.txt; }
+
+echo "Checking node installation from src folder (MUP-AWS-BEANSTALK)"
+source ./node.sh
 
 echo "Node version"
 echo $(node --version)
